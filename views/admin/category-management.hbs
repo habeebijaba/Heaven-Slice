@@ -1,0 +1,65 @@
+<link href="/assets/css/bootstrap-2.min.css" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="/assets/css/style3.css" rel="stylesheet">
+<div class="container-fluid position-relative d-flex p-0">
+    {{!-- <div class="content">
+        <div class="bg-secondary"> --}}
+            <div class="ml-auto" style="width:100%">
+                <div class="container">
+                    <div class="row" style="background-color: black;">
+                        <div class="col-12 col-lg-12 mt-5">
+                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><u>Category management</u></p>
+                            <a class="btn btn-dark ml-auto mb-4 " style="width:10rem ;" href="/admin/add-category">Add
+                                Category</a>
+                            <a href="/admin/add-catOffer" class="btn  btn-dark ml-auto mb-4"
+                                style="width: 130px;">Category Offer</a>
+                            <div class="row d-block ">
+                                <table class="table mt-5 " id="viewusers">
+                                    <thead class="bg-white text-dark ">
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col"><input class="form-control bg-dark border-0" type="search"
+                                                    id="myInput" placeholder="Category Name"></th>
+                                            <th scope="col">Thumbnail</th>
+                                            <th scope="col">Edit </th>
+                                            <th scope="col">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="myTable">
+                                        {{#each AllCategories}}
+                                        <tr>
+                                            <th scope="row" class="fs-bold">{{inc @index}}</th>
+                                            <td>{{this.category}}</td>
+                                            <td><img style="height: 50px;width:50px;"
+                                                    src="/category-images/{{this._id}}.jpg" alt="">
+                                            </td>
+                                            <td class="pl-5 person-edit"><a href="/admin/edit-category/{{this._id}}"><i
+                                                        class="fa fa-edit fa-2x text-danger " aria-hidden="true"
+                                                        style="color: rgb(90, 92, 92);"></i></a></td>
+                                            <td class="pl-5"><a href="/admin/delete-category/{{this._id}}"><i
+                                                        class="fa fa-trash fa-2x text-danger" aria-hidden="true"
+                                                        onclick="return confirm('Are you sure want to Delete {{this.name}} Category')"></i></a>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>

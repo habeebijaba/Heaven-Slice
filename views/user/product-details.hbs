@@ -1,0 +1,553 @@
+
+
+
+{{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+
+<link rel="stylesheet" href="/assets/css/style.css">
+
+
+
+{{!-- <div class="page-wrapper"> --}}
+    <main class="main" >
+        <div class="page-header text-center  "
+            style="background-image: url('/assets/images/products/page-header-bg.jpg'); margin-bottom: 10rem; "  >
+            <div class="container">
+                <h1 class="page-title">product details</h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
+        
+        <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-5">
+            <div class="container d-flex align-items-center ">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/product-details">shop</a></li>
+                    <li class="breadcrumb-item active"><a href="#">product</a></li>
+                </ol>
+            </div><!-- End .container -->
+        </nav><!-- End .breadcrumb-nav -->
+        
+        {{!-- <div class="card-wrapper"> --}}
+            <div class="container">
+            <div class="card p-5">
+                <!-- card left -->
+                <div class="product-imgs" >
+                    <div class="img-display">
+                        <div class="img-showcase">
+
+                            <img  src="/product-images/{{productDetails._id}}1.jpg" alt="bag image" class="zoom">
+                            <img src="/product-images/{{productDetails._id}}2.jpg" alt="bag image" class="zoom">
+                            <img src="/product-images/{{productDetails._id}}3.jpg" alt="bag image" class="zoom">
+                            <img src="/product-images/{{productDetails._id}}4.jpg" alt="bag image" class="zoom">
+                        </div>
+                    </div>
+                    <div class="img-select">
+                        <div class="img-item">
+                            <a href="#" data-id="1">
+                                <img src="/product-images/{{productDetails._id}}1.jpg" alt="shoe image">
+                            </a>
+                        </div>
+                        <div class="img-item">
+                            <a href="#" data-id="2">
+                                <img src="/product-images/{{productDetails._id}}2.jpg" alt="shoe image">
+                            </a>
+                        </div>
+                        <div class="img-item">
+                            <a href="#" data-id="3">
+                                <img src="/product-images/{{productDetails._id}}3.jpg" alt="shoe image">
+                            </a>
+                        </div>
+                        <div class="img-item">
+                            <a href="#" data-id="4">
+                                <img src="/product-images/{{productDetails._id}}4.jpg" alt="shoe image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- card right -->
+                <div class="product-content">
+                    <h2 class="product-title1">{{productDetails.name}}</h2>
+                    <a href="" class="ms-auto"><i class="fa fa-light fa-heart"></i></a>
+                    <a href="#" class="product-link">visit our store</a>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>4.7(21)</span>
+                    </div>
+
+                    <div class="product-price1">
+                        <p class="new-price1">Price: <span>₹{{productDetails.price}} &nbsp; {{#if productDetails.actualPrice}} ₹<del> {{productDetails.actualPrice}} </del>{{/if}}</span></p>
+                        {{!-- <p class="product-price  ">₹ {{productDetails.price}} &nbsp; {{#if productDetails.actualPrice}} ₹<del> {{productDetails.actualPrice}} </del>{{/if}}</p> --}}
+                                                 <p class="product-price text-success ">{{#if productDetails.proOfferPercentage}}{{productDetails.proOfferPercentage}}<small> &nbsp; %off</small> {{/if}}{{#if productDetails.catOfferPercentage }}{{productDetails.catOfferPercentage}}<small>%off</small>{{/if}} </p>
+                    </div>
+
+                    <div class="product-detail">
+                        {{!-- <h2>about this item: </h2> --}}
+                        <p>Description: {{productDetails.description}}</p>
+                        <ul>
+                            {{!-- <li>Color: <span>Black</span></li> --}}
+                            {{!-- <li>Available: <span>in stock</span></li> --}}
+                            <li>Category: <span>{{productDetails.category}}</span></li>
+                            {{!-- <li>Shipping Area: <span>All over the world</span></li> --}}
+                            <li>Shipping Fee: <span>Free</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="purchase-info">
+                        
+                        <button class="btn btn-success mt-3 cart" onclick="addToCart('{{productDetails._id}}')"><i class="fa fa-light fa-cart-shopping"></i>Add to
+                            Cart
+                        </button>
+                        {{!-- <button type="button" class="btn mt-3 wish"><i class="fa fa-light fa-heart"></i>Add to
+                            whishlist</button> --}}
+                        <button type="button"  onclick="addToWishlist('{{productDetails._id}}')" class="btn mt-3 buy"><i class="fa fa-solid fa-credit-card"></i>Add To Wishlist</button>
+                    </div>
+
+
+                </div>
+            </div>
+            </div>
+        {{!-- </div> --}}
+
+        <div class="container mt-5">
+                 <div class="container">
+                <h3 class="page-title text-center ">Similar products</h3>
+            </div>
+
+             <div class="products mb-3">
+                            <div class="row justify-content-center">
+                                {{#each similarProducts}}
+                                <div class="col-6 col-md-4 col-lg-4">
+                                    <div class="product product-7 text-center">
+                                        <figure class="product-media">
+                                            <span class="product-label label-new"> {{#if
+                                                proOfferPercentage}}{{proOfferPercentage}}<small>%off</small>{{else if
+                                                catOfferPercentage
+                                                }}{{catOfferPercentage}}<small>%off</small>{{else}}NEW{{/if}}</span>
+                                            <a href="/product-details/{{this._id}}">
+                                                <img src="/product-images/{{this._id}}1.jpg" alt="Product image"
+                                                    class="product-image">
+                                            </a>
+                                            <div class="product-action-vertical">
+                                                <a class="btn-product-icon btn-wishlist btn-expandable"
+                                                    id="{{this._id}}" onclick="addToWishlist('{{this._id}}')"><i
+                                                        class="fa fa-light fa-heart"></i><span>add to
+                                                        wishlist</span></a>
+                                                <a href="" class="btn-product-icon btn-quickview" title="Quick view"><i
+                                                        class="fa fa-light fa-binoculars"></i><span>Quick
+                                                        view</span></a>
+                                            </div><!-- End .product-action-vertical -->
+                                            <div class="product-action">
+                                                <button onclick="addToCart('{{this._id}}')"
+                                                    class="btn-product btn-cart"><i
+                                                        class="fa fa-light fa-cart-shopping"></i><span>Add to
+                                                        cart</span></button>
+                                            </div><!-- End .product-action -->
+                                        </figure><!-- End .product-media -->
+                                        <div class="product-body">
+                                            <div class="product-cat">
+                                                <a href="#">{{this.category}}</a>
+                                            </div><!-- End .product-cat -->
+                                            <h3 class="product-title"><a href="">{{this.name}}</a></h3>
+                                            <!-- End .product-title -->
+                                            <div class="product-price">
+                                                {{!-- {{this.price}} --}}
+                                                <p class="product-price  ">₹ {{this.price}} &nbsp; {{#if
+                                                    this.actualPrice}} ₹<del> {{this.actualPrice}} </del>{{/if}}</p>
+                                                <p class="product-price text-success ">&nbsp; {{#if
+                                                    proOfferPercentage}}{{proOfferPercentage}}<small>%off</small>
+                                                    {{/if}}{{#if catOfferPercentage
+                                                    }}{{catOfferPercentage}}<small>%off</small>{{/if}} </p>
+                                            </div><!-- End .product-price -->
+                                            <div class="ratings-container">
+                                                <div class="ratings">
+                                                    <div class="ratings-val" style="width: 20%;"></div>
+                                                    <!-- End .ratings-val -->
+                                                </div><!-- End .ratings -->
+                                                <span class="ratings-text">( 2 Reviews )</span>
+                                            </div><!-- End .rating-container -->
+                                        </div><!-- End .product-body -->
+                                    </div><!-- End .product -->
+                                </div><!-- End .col-sm-6 col-lg-4 -->
+                                {{/each}}
+                            </div><!-- End .row -->
+                        </div><!-- End .products -->
+        </div>
+        
+    </main>
+{{!-- </div> --}}
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+        line-height: 1.5;
+    }
+
+    .card-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    {{!-- img {
+        width: 100%;
+        display: block;
+    } --}}
+
+    .img-display {
+        overflow: hidden;
+    }
+
+    .img-showcase {
+        display: flex;
+        width: 100%;
+        transition: all 0.5s ease;
+    }
+
+    .img-showcase img {
+        min-width: 100%;
+    }
+
+
+    .img-select {
+        display: flex;
+    }
+
+    .img-item {
+        margin: 0.3rem;
+    }
+
+    .img-item:nth-child(1),
+    .img-item:nth-child(2),
+    .img-item:nth-child(3) {
+        margin-right: 0;
+    }
+
+    .img-item:hover {
+        opacity: 0.8;
+    }
+
+    .product-content {
+        padding: 2rem 1rem;
+    }
+
+    .product-title1 {
+        font-size: 4rem;
+        text-transform: capitalize;
+        font-weight: 600;
+        position: relative;
+        color: #12263a;
+        margin: 1rem 0;
+    }
+
+    .product-title1::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: 80px;
+        background: #12263a;
+    }
+
+    .product-link {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 0.9rem;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        background: #256eff;
+        color: #fff;
+        padding: 0 0.3rem;
+        transition: all 0.5s ease;
+    }
+
+    .product-link:hover {
+        opacity: 0.9;
+    }
+
+    .product-rating {
+        color: #ffc107;
+    }
+
+    .product-rating span {
+        font-weight: 600;
+        color: #252525;
+    }
+
+    .product-price1 p {
+        margin: 1rem 0;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    .product-price span {
+        font-weight: 400;
+    }
+
+    .new-price1 span {
+        color: #256eff;
+    }
+
+    .product-detail h2 {
+        text-transform: capitalize;
+        color: #12263a;
+        padding-bottom: 0.6rem;
+    }
+
+    .product-detail p {
+        font-size: 1.5rem;
+        padding: 0.3rem;
+        opacity: 0.8;
+    }
+
+    .product-detail ul {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+
+    .product-detail ul li {
+        margin: 0;
+        list-style: none;
+        background: url(shoes_images/checked.png) left center no-repeat;
+        background-size: 18px;
+
+        margin: 0.4rem 0;
+        font-weight: 600;
+        opacity: 0.9;
+    }
+
+    .product-detail ul li span {
+        font-weight: 500;
+    }
+
+    .purchase-info {
+        margin: 1.5rem 0;
+    }
+
+    .purchase-info input,
+    .purchase-info .btn {
+        border: 2.5px solid #ddd;
+        border-radius: 10px;
+        text-align: center;
+        padding: 0.45rem 0.8rem;
+        outline: 0;
+        margin-right: 0.2rem;
+        margin-bottom: 1rem;
+        height: 50px;
+        width: 250px;
+    }
+
+    .purchase-info input {
+        width: 10px;
+    }
+
+    .purchase-info .btn {
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .cart {
+        background: #256eff;
+    }
+
+    .wish {
+        background: #224f00;
+    }
+
+    .buy {
+        background: #f64749;
+    }
+
+    .purchase-info .btn:hover {
+        opacity: 0.9;
+        color: #000;
+    }
+
+    .social-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        color: #000;
+        border: 1px solid #000;
+        margin: 0 0.2rem;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 0.8rem;
+        transition: all 0.5s ease;
+    }
+
+    .social-links a:hover {
+        background: #000;
+        border-color: transparent;
+        color: #fff;
+    }
+
+    @media screen and (min-width: 992px) {
+        .card {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1.5rem;
+        }
+
+        .card-wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-imgs {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .product-content {
+            padding-top: 0;
+        }
+    }
+</style>
+
+
+<script>
+    const imgs = document.querySelectorAll('.img-select a');
+    const imgBtns = [...imgs];
+    let imgId = 1;
+
+    imgBtns.forEach((imgItem) => {
+        imgItem.addEventListener('mouseover', (event) => {
+            event.preventDefault();
+            imgId = imgItem.dataset.id;
+            slideImage();
+        });
+    });
+
+    function slideImage() {
+        const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+        document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+    }
+
+</script>
+<script src="/zoomsl.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.zoom').imagezoomsl({
+            zoomrange:[3,3]
+            });
+        })
+    </script>
+
+
+
+{{!-- <script>
+
+function addToCart(proId){
+    $.ajax({
+        url:'/add-to-cart/'+proId,
+        method:'get',
+        success:(response)=>{
+            if(response.status){
+                let count=$('#cart-count').html()
+                count=parseInt(count)+1
+                $("#cart-count").html(count)
+                swal.fire({
+                    icon: "success",
+                    title: "Item Added To Cart",
+                    showConfirmButton: false,
+                    timer: 1000,
+                })
+            }else{
+                location.href='/login'
+            }
+        }
+    })
+}
+
+
+</script> --}}
+
+
+
+
+
+{{!-- new page-content --}}
+
+
+{{!-- End --}}
+
+
+
+<script>
+        function addToWishlist(proId){
+        $.ajax({
+            url:'/add-to-wishlist/'+proId,
+            method:'get',
+            success:(response)=>{
+                if(response.status){
+                    let count = $('#wishlist-count').html()
+                    count = parseInt(count) + 1
+                    $("#wishlist-count").html(count)
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Item added to wishlist',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
+                    document.getElementById(proId).style.color="red";
+                }else{
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Item Removed in wishlist',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
+                    document.getElementById(proId).style.color="grey";
+                }
+            }
+        
+        })
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

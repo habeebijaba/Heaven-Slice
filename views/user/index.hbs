@@ -1,0 +1,453 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<div class="page-wrapper">
+    <div class="background" style="background-image: url(/banner-images/firstBanner.jpg);">
+        <div class="slider">
+            <div class="intro">
+                <div class="title">
+                    <marquee width="60%" direction="left" height="100px" style="color:#fff ;">
+                        Bigger than ever Upto 60% Off On <strong>100+</strong> Products Hurry Up!!!
+                    </marquee>
+                    <h3>Fusion cakes so nice,you'll want it twice</h3>
+                </div>
+                <div class="content">
+                    <h4><i>Explore new flavours</i></h4>
+                    <h5>All you need is love and some cake!</h5>
+                </div>
+                <div class="action">
+                    <a href="/view-products">discover now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main">
+        <section class="logos">
+            <div class="container">
+                <hr class="mb-4">
+                <div class="heading">
+                    <p class="heading-cat">Cakes for everyday occasions</p>
+                    <small>All you need is love and some cake!</small>
+                </div>
+                <div class="owl-carousel mb-5 owl-simple" data-toggle="owl" data-owl-options='{
+                        "nav": true, 
+                        "dots": true,
+                        "margin": 30,
+                        "loop": false,
+                        "responsive": {
+                            "0": {
+                                "items":2
+                            },
+                            "420": {
+                                "items":3
+                            },
+                            "600": {
+                                "items":4
+                            },
+                            "900": {
+                                "items":5
+                            },
+                            "1024": {
+                                "items":6
+                            }
+                        }
+                    }'>
+                    {{#each allCategories}}
+                    <a href="/view-catwise/{{this.category}}" class="brand">
+                        <div class="card">
+                            <img style="border-radius: 10px;" class="card-img-top"
+                                src="/category-images/{{this._id}}.jpg" alt="Brand Name">
+                            <div class="card-img-overlay">
+                                <p class=" text-dark fw-bold  ">{{this.category}}</p>
+                                <small class="text-dark "> {{this.description}}</small>
+                            </div>
+                        </div>
+                    </a>
+                    {{/each}}
+                </div>
+                <!-- End .owl-carousel -->
+            </div>
+        </section>
+        <!-- End .container -->
+        <section class="banners center">
+            <div class="container">
+                <div class="row">
+                    <div class="banner col-lg-4 col-md-6 col-sm-6">
+                        <img src="assets/images/demos/demo-24/banners/b1.jpg">
+                        <div class="intro ">
+                            <div class="title ">
+                                <h3 class=" text-dark">The Cake You Want</h3>
+                            </div>
+                            <div class="content">
+                                <h4 class=" bg-light text-dark">Satisfy<br> Your Cravings</h4>
+                            </div>
+                            <div class="action">
+                                <a class="bg-warning text-dark" href="">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner percent col-lg-4 col-md-6 col-sm-6">
+                        <img src="assets/images/demos/demo-24/banners/b11.jpg">
+                        <div class="intro">
+                            <div class="title">
+                                <h3>Bigger than ever</h3>
+                                <h4>SALE</h4>
+                            </div>
+                            <div class="img-percent">
+                                <img src="assets/images/demos/demo-24/banners/percent.png" width="190" height="75">
+                            </div>
+                            <div class="content">
+                                <h4>Dont miss the chance</h4>
+                            </div>
+                            <div class="action">
+                                <a href="/view-products">Discover Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner col-lg-4 col-md-6 col-sm-6">
+                        <img src="assets/images/demos/demo-24/banners/b12.jpg">
+                        <div class="intro ">
+                            <div class="title ">
+                                <h3 class=" text-dark">The Cake You Want</h3>
+                            </div>
+                            <div class="content">
+                                <h4 class=" bg-light text-dark">Satisfy<br>your Cravings</h4>
+                            </div>
+                            <div class="action">
+                                <a class="bg-warning text-dark" href="/view-products">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="best-sellers">
+            <div class="container">
+                <div class="heading">
+                    <p class="heading-cat">favourite from every category</p>
+                    <h3 class="heading-title">Best Sellers</h3>
+                </div>
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow text-center"
+                    data-toggle="owl" data-owl-options='{
+                        "nav": true, 
+                        "dots": false,
+                        "margin": 30,
+                        "loop": false,
+                        "responsive": {
+                            "0": {
+                                "items":2
+                            },
+                            "768": {
+                            	"items":3
+                            },
+                            "992": {
+                                "items":3
+                            },
+                            "1200": {
+                            	"items":4
+                            }
+                        }
+                    }'>
+                    {{#each allProducts}}
+                    <div class="product product-10 text-center">
+                        <figure class="product-media">
+                            <a href="/product/{{this._id}}">
+                                <img src="/product-images/{{this._id}}1.jpg" alt="Product image" class="product-image">
+                                <img src="/product-images/{{this._id}}2.jpg" alt="Product image"
+                                    class="product-image-hover">
+                            </a>
+                        </figure>
+                        <!-- End .product-media -->
+                        <div class="product-body">
+                            <div class="product-action">
+                                <a class="btn-cart" onclick="addToCart('{{this._id}}')"><span>add to cart</span></a>
+                                <a class="btn-product-icon " onclick="addToWishlist('{{this._id}}')"><i
+                                        class="bi bi-heart"></i><span>Add to
+                                        Wishlist</span></a>
+                            </div>
+                            <!-- End .product-action -->
+                            <div class="product-intro">
+                                <h3 class="product-title">
+                                    <a href="">{{this.name}}</a>
+                                </h3>
+                                <!-- End .product-title -->
+                                <div class="product-price">
+                                    {{!-- ₹{{this.price}} --}}
+                                    <p class="product-price  ">₹ {{this.price}} &nbsp; {{#if this.actualPrice}} ₹<del>
+                                            {{this.actualPrice}} </del>{{/if}}</p>
+                                    <p class="product-price text-success "> &nbsp; {{#if
+                                        proOfferPercentage}}{{proOfferPercentage}}<small>%off</small> {{/if}}{{#if
+                                        catOfferPercentage }}{{catOfferPercentage}}<small>%off</small>{{/if}} </p>
+                                </div>
+                                <!-- End .product-price -->
+                            </div>
+                            <div class="ratings-cart text-right">
+                                <div class="ratings">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <span class="ratings-text">( 6 Reviews )</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .product-body -->
+                    </div>
+                    <!-- End .product -->
+                    {{/each}}
+                </div>
+            </div>
+</div>
+</section>
+<section>
+    <div class="container-fluid p-0 m-0">
+        <div class="row m-0 p-0">
+            <div class="card col-md-6 p-0">
+                <img style="height: 100%;width: 100%;" class="img-fluid"
+                    src="assets/images/demos/demo-24/banners/b5.jpg" alt="">
+                <div class="d-flex flex-column justify-content-center align-items-center card-img-overlay">
+                    <div class="title ">
+                        <h3 class="text-light"><i>Cakes For</i></h3>
+                    </div>
+                    <div class="content">
+                        <h4>Taste & Celebrate</h4>
+                        <p class="text-light text-center">Don't waste your time hurry up and enjoy the real taste !!!
+                        </p>
+                    </div>
+                    <div class="action">
+                        <a href="/view-products">Discover Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-0">
+                <div class="d-flex h-50">
+                    <div class="card col-md-6 p-0">
+                        <img style="height: 100%;width: 100%;" class="img-fluid"
+                            src="assets/images/demos/demo-24/banners/b6.jpg" alt="">
+
+                        <div class="d-flex flex-column justify-content-center align-items-center card-img-overlay">
+
+                            <div class="title ">
+                                <h3 class="text-light"><i>Cakes For</i></h3>
+                            </div>
+                            <div class="content">
+                                <h4>Fresh & Natural</h4>
+                                <p class="text-light text-center ">All you need is love and some cake!</p>
+                            </div>
+                            <div class="action">
+                                <a href="">Discover Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card col-md-6 p-0">
+                        <img style="height: 100%;width: 100%;" class="img-fluid"
+                            src="assets/images/demos/demo-24/banners/b7.jpg" alt="">
+                        <div class="d-flex flex-column justify-content-center align-items-center card-img-overlay">
+                            <div class="title ">
+                                <h3 class="text-light"><i>Cakes For</i></h3>
+                            </div>
+                            <div class="content">
+                                <h4>Fresh & Natural</h4>
+                                <p class="text-light text-center">All you need is love and some cake!</p>
+                            </div>
+                            <div class="action">
+                                <a href="">Discover Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex h-50">
+                    <div class=" card col-md-6 p-0">
+                        <img style="height: 100%;width: 100%;" class="img-fluid"
+                            src="assets/images/demos/demo-24/banners/b8.jpg" alt="">
+                        <div class="d-flex flex-column justify-content-center align-items-center card-img-overlay">
+                            <div class="title ">
+                                <h3 class="text-light"><i>Cakes For</i></h3>
+                            </div>
+                            <div class="content">
+                                <h4>Taste & Celebrate</h4>
+                                <p class="text-light text-center">All you need is love and some cake!</p>
+                            </div>
+                            <div class="action">
+                                <a href="/view-products">Discover Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" card col-md-6 p-0">
+                        <img style="height: 100%;width: 100%;" class="img-fluid"
+                            src="assets/images/demos/demo-24/banners/b9.jpg" alt="">
+                        <div class="d-flex flex-column justify-content-center align-items-center card-img-overlay">
+                            <div class="title ">
+                                <h3 class="text-light"><i>Cakes For</i></h3>
+                            </div>
+                            <div class="content">
+                                <h4>Taste & Celebrate</h4>
+                                <p class="text-light text-center">All you need is love and some cake!</p>
+                            </div>
+                            <div class="action">
+                                <a href="">Discover Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="video-banner pt-5 ">
+    <img src="assets/images/demos/demo-24/video-banner/v1.jpg" class="w-75">
+    <div class="intro video">
+        <div class="title">
+            <h3><i>Lets Celebrate</i></h3>
+        </div>
+        <div class="content">
+            <h4 class="" >Real taste<br>of life </h4>
+        </div>
+        <div class="action">
+            <a  class="btn-iframe"><i class="fa fa-light fa-circle-play"></i></a>
+        </div>
+    </div>
+</section>
+<section class="subscribe">
+    <div class="container">
+        <div class="heading">
+            <p class="heading-cat">Get The Latest News & Deals</p>
+            <h3 class="heading-title">Get In Touch</h3>
+        </div>
+        <div class="col-lg-6 subscribe-form">
+            <form action="#">
+                <div class="input-group">
+                    <input type="email" placeholder="Enter your Email Address" aria-label="Email Adress" required="">
+                    <div class="input-group-append">
+                        <a href="contact-us" class="btn btn-subscribe" type="submit"><span>Contact Us</span></a>
+                    </div>
+                    <!-- .End .input-group-append -->
+                </div>
+                <!-- .End .input-group -->
+            </form>
+        </div>
+    </div>
+</section>
+<section class="blog mb-6">
+    <div class="container">
+        <div class="heading">
+            <p class="heading-cat">Our Fresh News</p>
+            <h3 class="heading-title">Coming Soon...</h3>
+        </div>
+        <div class="owl-carousel owl-simple mb-4" data-toggle="owl" data-owl-options='{
+	                        "nav": true, 
+	                        "dots": false,
+	                        "items": 3,
+	                        "margin": 20,
+	                        "loop": false,
+	                        "responsive": {
+	                            "0": {
+	                                "items":1,
+	                                "dots":true
+	                            },
+	                            "520": {
+	                                "items":2,
+	                                "dots":true
+	                            },
+	                            "768": {
+	                                "items":3
+	                            }
+	                        }
+	                    }'>
+
+            {{#each allBanners}}
+            <article class="entry">
+                <figure class="entry-media">
+                    <a href="single.html">
+                        <img src="/banner-images/{{this._id}}.jpg" alt="image desc">
+                    </a>
+                </figure>
+                <!-- End .entry-media -->
+
+                <div class="entry-body text-center">
+                    <div class="entry-meta">
+                        <a href="#">{{this.name}}</a>
+                    </div>
+                    <!-- End .entry-meta -->
+
+                    <h3 class="entry-title">
+                        <a href="">{{this.description}}</a>
+                    </h3>
+                    <!-- End .entry-title -->
+
+                    <div class="entry-content">
+                        <a href="" class="read-more">read more</a>
+                    </div>
+                    <!-- End .entry-content -->
+                </div>
+                <!-- End .entry-body -->
+            </article>
+            <!-- End .entry -->
+            {{/each}}
+            <!-- End .entry -->
+        </div>
+        <!-- End .owl-carousel -->
+    </div>
+</section>
+<section class="instagram mb-3">
+    <div class="container">
+        <div class="heading">
+            <p class="heading-cat">Follow Us On Instagram <span class="highlight"><span></p>
+        </div>
+        <div class="row">
+            <div class="col-xl-5col col-md-3 col-6 instagram-feed">
+                <img src="assets/images/demos/demo-24/instagram/i1.jpg">
+                <div class="instagram-feed-content">
+                    <a href="#"><i class="bi bi-heart"></i>280</a>
+                    <a href="#"><i class="fa fa-thin fa-comments"></i>22</a>
+                </div>
+            </div>
+            <div class="col-xl-5col col-md-3 col-6 instagram-feed">
+                <img src="assets/images/demos/demo-24/instagram/i6.jpg">
+                <div class="instagram-feed-content">
+                    <a href="#"><i class="bi bi-heart"></i>280</a>
+                    <a href="#"><i class="fa fa-thin fa-comments"></i>22</a>
+                </div>
+            </div>
+            <div class="col-xl-5col col-md-3 col-6 instagram-feed">
+                <img src="assets/images/demos/demo-24/instagram/i3.jpg">
+                <div class="instagram-feed-content">
+                    <a href="#"><i class="bi bi-heart"></i>280</a>
+                    <a href="#"><i class="fa fa-thin fa-comments"></i>22</a>
+                </div>
+            </div>
+            <div class="col-xl-5col col-md-3 col-6 instagram-feed">
+                <img src="assets/images/demos/demo-24/instagram/i4.jpg">
+                <div class="instagram-feed-content">
+                    <a href="#"><i class="bi bi-heart"></i>280</a>
+                    <a href="#"><i class="fa fa-thin fa-comments"></i>22</a>
+                </div>
+            </div>
+            <div class="col-xl-5col col-md-3 col-6 instagram-feed">
+                <img src="assets/images/demos/demo-24/instagram/i2.jpg">
+                <div class="instagram-feed-content">
+                    <a href="#"><i class="bi bi-heart"></i>280</a>
+                    <a href="#"><i class="fa fa-thin fa-comments"></i>22</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+</div>
+
+<style>
+    .stroke {
+   -webkit-text-stroke: 1px white;
+   color: white;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+</style>

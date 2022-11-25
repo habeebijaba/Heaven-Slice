@@ -1,0 +1,64 @@
+<link href="/assets/css/bootstrap-2.min.css" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="/assets/css/style3.css" rel="stylesheet">
+<div class="container-fluid position-relative d-flex p-0">
+    {{!-- <div class="content">
+        <div class="bg-secondary"> --}}
+            <div class="container-fluid">
+                <div class="row " style="background-color: black;">
+                    <div class="col-12 col-lg-12 mt-5">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><u>Banner management</u></p>
+                                <a href="/admin/add-banner" class="btn btn-dark ml-auto mb-4" style="width: 130px;">Add
+                                    banner</a>
+                            </div>
+                        </div>
+                        <table class="table" id="viewusers">
+                            <thead class="bg-white text-dark ">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">description</th>
+                                    <th scope="col">offer </th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each allBanners}}
+                                <tr>
+                                    <th scope="row" class="fs-bold">{{inc @index}}</th>
+                                    <td><img style="height: 50px;width:50px;" src="/banner-images/{{this._id}}.jpg"
+                                            alt=""></td>
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.description}}</td>
+                                    <td>{{this.offer}}&nbsp;%</td>
+
+                                    <td><a href="/admin/edit-banner/{{this._id}}"><i class="fa fa-edit fa-2x"
+                                                aria-hidden="true"></i></a></td>
+                                    <td><a href="/admin/delete-banner/{{this._id}}"><i
+                                                class="fa fa-trash fa-2x text-danger" aria-hidden="true"
+                                                onclick="return confirm('Are you sure want to Delete {{this.name}} banner')"></i></a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $.noConflict();
+        $('#viewusers').DataTable();
+    });
+</script>

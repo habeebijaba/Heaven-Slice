@@ -1,0 +1,161 @@
+{{!--
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css"> --}}
+{{!--
+<link rel="stylesheet" href="/assets/css/style.css"> --}}
+{{!-- <div class="background" style="background-image: url(assets/images/demos/demo-24/slider/banner-4-1.jpg);"> --}}
+  <header class="header">
+
+    <div class="header-top">
+
+      <div class="header-right text light">
+
+
+        <ul class="d-flex m-3 ">
+          {{#if user}}
+          <li class="ms-auto mx-3"><a href="#">User: {{user.username}} </a></li>
+
+          {{/if}}
+
+          <li class="mx-3"><a href="">About Us</a></li>
+          <li class="mx-3"><a href="/contact-us">Contact Us</a></li>
+          {{#if user}}
+          <li><a href="/logout" data-toggle="modal"><i class="fa fa-user"></i>Logout</a> </li>
+          {{else}}
+          <li><a href="/login" data-toggle="modal"><i class="fa fa-user"></i>Login</a> </li>
+          {{/if}}
+
+
+
+
+        </ul>
+      </div>
+
+    </div>
+    <!-- End .header-top -->
+
+    <div class="header-middle sticky-header">
+      <div class="header-left">
+        <button class="mobile-menu-toggler">
+          <span class="sr-only">Toggle mobile menu</span>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a href="" class="logo">
+          <img style="width:130px ; height:100px; border-radius: 11px; " src="/assets/images/demos/demo-24/mylogo.png  "
+            alt="logo" width="110" height="25">
+        </a>
+      </div>
+      <!-- End .header-left -->
+
+      <div class="header-center">
+        <nav class="main-nav">
+          <ul class="menu sf-arrows">
+            <li class="megamenu-container ">
+              <a href="/" class="sf-with-ul">Home</a>
+            </li>
+            <li>
+              <a href="/view-products" class="sf-with-ul">Shop</a>
+
+            </li>
+            <li>
+              <a href="" class="sf-with-ul">Category<i class="fa fa-light fa-caret-down ps-3"></i></a>
+
+              <div class="megamenu megamenu-sm">
+                <div class="row no-gutters">
+                  <div class="col-md-6">
+                    <div class="menu-col">
+                      <div class="menu-title">categories</div>
+                      <!-- End .menu-title -->
+                      <ul>
+                        <li><a href="/view-products">BIRTHDAY</a></li>
+                        <li><a href="/view-products">FAREWELL</a></li>
+                        <li><a href="/view-products">GRADUATION</a></li>
+                        <li><a href="/view-products">WEDDING</a></li>
+                        <li><a href="/view-products">ENGAGEMENT</a></li>
+                        <li><a href="/view-products">BABY SHOWER</a></li>
+                        <li><a href="/view-products">HOUSEWARMING</a></li>
+                        <li><a href="/view-products">GRADUATION</a></li>
+
+                      </ul>
+                    </div>
+                    <!-- End .menu-col -->
+                  </div>
+                  <!-- End .col-md-6 -->
+
+                  <div class="col-md-6">
+                    <div class="banner banner-overlay">
+                      <!-- <a href="category.html"> -->
+                      <img src="/assets/images/demos/demo-24/banners/1.jpg" alt="Banner">
+
+                      <div class="banner-content banner-content-bottom">
+                        <div class="banner-title text-white">New Flavours<br><span><strong>spring 2022</strong></span>
+                        </div>
+                        <!-- End .banner-title -->
+                      </div><!-- End .banner-content -->
+                      </a>
+                    </div>
+                    <!-- End .banner -->
+                  </div>
+                  <!-- End .col-md-6 -->
+                </div>
+                <!-- End .row -->
+              </div>
+              <!-- End .megamenu megamenu-sm -->
+            </li>
+            <li>
+              <a href="/view-orders" class="sf-with-ul">Orders</a>
+            </li>
+            <li>
+              <a href="/contact-us" class="sf-with-ul">Contact</a>
+            </li>
+            {{#if user}}
+            <li><a href="/logout" class="sf-with-ul">Logout <i class="fa fa-regular fa-right-from-bracket"></i></a></li>
+            {{else}}
+            <li><a href="/login" class="sf-with-ul">Login</a></li>
+            {{/if}}
+
+          </ul>
+          <!-- End .menu -->
+        </nav>
+        <!-- End .main-nav -->
+      </div>
+      {{#if user}}
+      <div class="header-right">
+        <div class="header-search">
+          <a href="#" class="search-toggle text-white " role="button" title="Search"><i class="fa fa-search"></i></a>
+          <form action="#" method="get">
+            <div class="header-search-wrapper">
+              <label for="q" class="sr-only">Search</label>
+              <input type="search" class="form-control" name="q" id="q" placeholder="Search in..." required>
+            </div><!-- End .header-search-wrapper -->
+          </form>
+        </div>
+        <!-- End .header-search -->
+        <div class="wishlist">
+          <a href="/wishlist" title="Wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span class="wishlist-count text-black bg-warning " id="wishlist-count">{{wishlistCount}}</span>
+          </a>
+        </div>
+        <!-- End .compare-dropdown -->
+        <div class="dropdown cart-dropdown">
+          <a href="/cart" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" data-display="static">
+            <i class="fa fa-light fa-cart-shopping" id="cart"></i>
+            <span class="cart-count text-black bg-warning " id="cart-count">{{cartCount}}</span>
+          </a>
+        </div>
+
+
+        <a href="/profile"> <img src="/profile-images/{{this.user._id}}.jpg" class="rounded-circle z-depth-0 me-1"
+            alt="avatar image" height="35" width="35" style="object-fit: cover ; margin-left: 10px; "></a>
+
+     
+      </div>
+      {{/if}}
+      <!-- End .header-right -->
+    </div>
+    <!-- End .header-middle -->
+  </header>
+  <!-- End .header -->
+</div>

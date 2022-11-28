@@ -17,6 +17,7 @@ const dashboard =async (req, res) => {
     let dailyRevenue=await orderHelper.dailyRevenue()
     let weeklyRevenue=await orderHelper.weeklyRevenue()
     let yearlyRevenue=await orderHelper.yearlyRevenue()
+    let a=0;
     // let getchartData=await orderHelper.getchartData()
     // let weelkyReport=await orderHelper.weelkyReport()
     // let Revenue=await orderHelper.Revenue()

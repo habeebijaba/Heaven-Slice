@@ -57,18 +57,6 @@ module.exports = {
             let orderFailLength = orderTotalLength - orderSuccessLength
             let total = 0
             let discount=0
-
-
-
-           
-
-
-
-
-
-        
-
-
             let razorpay = 0
             let cod = 0
             let paypal = 0
@@ -92,7 +80,6 @@ module.exports = {
                     discount++
                 }
             }
-
 
             let productCount=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
                 {
@@ -122,9 +109,6 @@ module.exports = {
                 }
               ]).toArray()
             
-
-
-
             var data = {
                 start: moment(start).format('YYYY/MM/DD'),
                 end: moment(end).format('YYYY/MM/DD'),
@@ -141,35 +125,22 @@ module.exports = {
                
                 currentOrders: orderSuccess
             }
-           
-
-           
-
             resolve(data)
       })
-
-   
- 
      },
 
-
-     
      getReport: (startDate,endDate) => {
         return new Promise(async (resolve, reject) => {
             let start=new Date(startDate)
             let end = new Date(endDate)
-            
-           
             let orderSuccess = await db.get().collection(collection.ORDER_COLLECTION).find({ date: { $gte: start, $lte: end }, status: { $nin: ['cancelled'] } }).sort({ Date: -1, Time: -1 }).toArray()
-            
+
             let orderTotal = await db.get().collection(collection.ORDER_COLLECTION).find({ date: { $gte: start, $lte: end } }).toArray()
             let orderSuccessLength = orderSuccess.length
             let orderTotalLength = orderTotal.length
             let orderFailLength = orderTotalLength - orderSuccessLength
             let total = 0
             let discount=0
-
-
             let razorpay = 0
             let cod = 0
             let paypal = 0
@@ -195,7 +166,7 @@ module.exports = {
             }
 
 
-
+try{
              productCount=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
                 {
                     $match:{
@@ -224,11 +195,6 @@ module.exports = {
                 }
               ]).toArray()
               
-
-
-
-
-
             var data = {
                 start: moment(start).format('YYYY/MM/DD'),
                 end: moment(end).format('YYYY/MM/DD'),
@@ -246,44 +212,18 @@ module.exports = {
                
                 currentOrders: orderSuccess
             }
-           
-
-
-
-
-
             resolve(data)
+        }catch{
+            resolve(data)
+        }
       })
      },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
      dailyReport:()=>{
         return new Promise(async(resolve, reject) => {
             
             let start=new Date(new Date()-1000*60*60*24)
-
-            
             let end = new Date()
-            
-            
-           
             let orderSuccess = await db.get().collection(collection.ORDER_COLLECTION).find({ date: { $gte: start, $lte: end }, status: { $nin: ['cancelled'] } }).sort({ Date: -1, Time: -1 }).toArray()
             
             let orderTotal = await db.get().collection(collection.ORDER_COLLECTION).find({ date: { $gte: start, $lte: end } }).toArray()
@@ -292,8 +232,6 @@ module.exports = {
             let orderFailLength = orderTotalLength - orderSuccessLength
             let total = 0
             let discount=0
-
-
             let razorpay = 0
             let cod = 0
             let paypal = 0
@@ -348,10 +286,6 @@ try{
                 }
               ]).toArray()
 
-            
-
-
-
             var data = {
                 start: moment(start).format('YYYY/MM/DD'),
                 end: moment(end).format('YYYY/MM/DD'),
@@ -367,16 +301,8 @@ try{
                 productCount:productCount[0].total,
                 averageRevenue:total/productCount[0].total,
 
-                
-               
                 currentOrders: orderSuccess
             }
-            
-
-
-
-
-
             resolve(data)
         }catch{
             resolve(data)
@@ -384,16 +310,11 @@ try{
         })
      },
 
-
-
      weeklyReport:()=>{
         return new Promise(async(resolve, reject) => {
             
             let start=new Date(new Date()-1000*60*60*24*7)
-
             let end = new Date()
-            
-           
             let orderSuccess = await db.get().collection(collection.ORDER_COLLECTION).find({ date: { $gte: start, $lte: end }, status: { $nin: ['cancelled'] } }).sort({ Date: -1, Time: -1 }).toArray()
             let orderTotal = await db.get().collection(collection.ORDER_COLLECTION).find({ date: { $gte: start, $lte: end } }).toArray()
             let orderSuccessLength = orderSuccess.length
@@ -401,8 +322,6 @@ try{
             let orderFailLength = orderTotalLength - orderSuccessLength
             let total = 0
             let discount=0
-
-
             let razorpay = 0
             let cod = 0
             let paypal = 0
@@ -426,8 +345,6 @@ try{
                     discount++
                 }
             }
-
-
 
             productCount=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
                 {
@@ -457,10 +374,6 @@ try{
                 }
               ]).toArray()
 
-
-
-
-
             var data = {
                 start: moment(start).format('YYYY/MM/DD'),
                 end: moment(end).format('YYYY/MM/DD'),
@@ -476,15 +389,8 @@ try{
                 productCount:productCount[0].total,
                 averageRevenue:total/productCount[0].total,
                 
-                
-               
                 currentOrders: orderSuccess
             }
-
-
-
-
-
             resolve(data)
         })
      },
@@ -495,8 +401,6 @@ try{
             let start=new Date(new Date()-1000*60*60*24*365)
 
             let end = new Date()
-            
-           
             let orderSuccess = await db.get().collection(collection.ORDER_COLLECTION).find({ date: { $gte: start, $lte: end }, status: { $nin: ['cancelled'] } }).sort({ Date: -1, Time: -1 }).toArray()
             let orderTotal = await db.get().collection(collection.ORDER_COLLECTION).find({ date: { $gte: start, $lte: end } }).toArray()
             let orderSuccessLength = orderSuccess.length
@@ -504,8 +408,6 @@ try{
             let orderFailLength = orderTotalLength - orderSuccessLength
             let total = 0
             let discount=0
-
-
             let razorpay = 0
             let cod = 0
             let paypal = 0
@@ -529,8 +431,6 @@ try{
                     discount++
                 }
             }
-
-
 
             productCount=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
                 {
@@ -560,8 +460,6 @@ try{
                 }
               ]).toArray()
 
-
-
             var data = {
                 start: moment(start).format('YYYY/MM/DD'),
                 end: moment(end).format('YYYY/MM/DD'),
@@ -578,23 +476,12 @@ try{
 
                 averageRevenue:total/productCount[0].total,
 
-
-                
-               
                 currentOrders: orderSuccess
             }
            
-
-
-
-
-
             resolve(data)
         })
      }
-
-
-
 
 
 }

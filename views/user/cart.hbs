@@ -177,8 +177,12 @@
 								<h6><i class="fa fa-light fa-indian-rupee-sign"></i><span id="total1">{{totalValue}}</span>
 								</h6>
 							</div>
+							{{#if totalValue}}
 							<a href="/place-order" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
 								CHECKOUT</a>
+								{{else}}
+								<a href="/view-products" class="btn btn-outline-primary-2 btn-order btn-block">Go To Shop</a>
+								{{/if}}
 						</div><!-- End .summary -->
 
 						<a href="/view-products" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
